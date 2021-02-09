@@ -275,10 +275,10 @@ workflows:
       - deploy-newman:
                requires:
                - deploy:
-          filters:
-            branches:
-              only:
-                - development
-                - stage
-                - master
-                - qa
+               filters:
+                branches:
+                  only:
+                    - development
+                    - stage
+                    - master
+                    - qa
