@@ -133,8 +133,6 @@ jobs:
   deploy-newman:
     docker:
       - image: circleci/python:3.7
-    steps:
-        - run: sleep(60) && echo "wait for celery deployment "
     working_directory: ~/repo
     environment:
         DOCKER_VERSION: "17.05.0-ce"
@@ -146,6 +144,7 @@ jobs:
         REPOSITORY_NAME: "dummy-ecr"
         REPOSITORY_PATH: "294238557692.dkr.ecr.ap-south-1.amazonaws.com/"
     steps:
+        - run: sleep(60) && echo "wait for celery deployment"
         - run:
             name: Download cicd repo
             command: |
