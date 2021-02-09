@@ -213,7 +213,7 @@ jobs:
             command: |
               # Check for this githash in ECR
               set +e
-              aws ecr list-images --region ap-south-1 --repository-name "$REPOSITORY_NAME" --max-items 5000 | grep "$CIRCLE_SHA1"
+              aws ecr list-images --region ap-south-1 --repository-name "$REPOSITORY_NAME" --max-items 5000 | grep "$CIRCLE_BUILD_NUM"
               image_exists=$?
               set -e
               if [[ ${image_exists} -eq 1 ]]; then
@@ -236,9 +236,9 @@ jobs:
 
         # clone devops.cicd.dashboard from github
         - run:
-            name: Download cicd repo
+            name: Download newman-terraform repo
             command: |
-              git clone "https://github.com/TSG-Research/${CICD_REPO_NEWMAN_TERRA}" .cd
+              git clone "https://github.com/prasad-datascience/${CICD_REPO_NEWMAN_TERRA}" .cd
               #cd .ci && git fetch --tags && git checkout "tags/${CICD_VERSION}"
         # deploy container
         - run:
