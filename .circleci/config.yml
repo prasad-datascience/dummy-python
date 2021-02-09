@@ -269,15 +269,22 @@ jobs:
 
 workflows:
   version: 2
-  build_and_deploy:
+  pipeline:
     jobs:
       - deploy:
+         filters:
+           branches:
+               only:
+                - development
+                - stage
+                - master
+                - qa
       - deploy-newman:
                requires:
                  - deploy:
                filters:
-                branches:
-                  only:
+                 branches:
+                   only:
                     - development
                     - stage
                     - master
