@@ -273,6 +273,7 @@ workflows:
   build_and_deploy:
     jobs:
       - deploy:
+      - deploy-newman:
           filters:
             branches:
               only:
