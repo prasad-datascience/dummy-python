@@ -147,7 +147,7 @@ jobs:
         - run: echo "wait for celery deployment"
         - run: sleep 60
         - run:
-            name: Download cicd repo
+            name: Download newman repo
             command: |
               git clone "https://github.com/prasad-datascience/${CICD_REPO_NEWMAN}" .ci
         - run:
