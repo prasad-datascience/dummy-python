@@ -281,7 +281,7 @@ workflows:
                 - qa
       - deploy-newman:
                requires:
-                 - deploy:
+                - deploy
                filters:
                  branches:
                    only:
