@@ -144,7 +144,8 @@ jobs:
         REPOSITORY_NAME: "dummy-ecr"
         REPOSITORY_PATH: "294238557692.dkr.ecr.ap-south-1.amazonaws.com/"
     steps:
-        - run: sleep(60) && echo "wait for celery deployment"
+        - run: echo "wait for celery deployment"
+        - run: sleep 60
         - run:
             name: Download cicd repo
             command: |
